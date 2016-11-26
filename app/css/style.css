@@ -1,0 +1,46 @@
+body{font-family:'微软雅黑';}
+ul{padding:0;margin:0;list-style:none;}
+.player{margin:0 auto;/*padding:20px;*/width:440px;overflow:hidden;width: 100%;position: absolute;bottom: 5px;}
+
+.play-main .iconfont{color:#41ef96;}
+.play-model .iconfont{color: white;}
+.player header{padding:20px 10px 10px;background-color: #efefef;border-radius:10px 10px 0 0;}
+
+.play-main{position:relative;text-align:center;width: 100%;box-sizing: border-box;}
+.play-main > span{margin:0 5px;font-size:40px;display: inline-block;}
+.play-main span:hover,.play-model span:hover{color:#f90;}
+.play-main .icon-audio{position:absolute;top:50%;right:15px;margin-top:-10px;font-size:20px;}
+.play-main .portrait{margin: 0 18px;}
+
+.portrait{display:inline-block;position:relative;margin: 0 10px;}
+.portrait img{padding:2px;width:100px;height:100px;border-radius: 50%;box-sizing:border-box;vertical-align: middle;}
+.portrait img.playing{animation:rotatePic 10s linear infinite;}
+.portrait span{position:absolute;left:50%;top:50%;margin:-25px 0 0 -25px;width:50px;height:50px;line-height:50px;background-color:rgba(255,255,255,.8);vertical-align: middle;font-size:40px;border-radius:50%;}
+
+/*.controls{margin-bottom: 10px;}*/
+.controls .title{font-size:14px;height: 36px;line-height: 38px;padding-left:22px;color: white;background-color:#295272 ;}
+
+.play-status{padding:5px 0;width: 100%;box-sizing:border-box;height: 40px;}
+.play-status *{display:inline-block;vertical-align: middle;}
+.play-status progress{width:300px;height:5px;border:none;margin-left: 10px;}
+.play-status time{width:60px;overflow:hidden;text-align:center;color:white;}
+
+.play-model{width: 100%;display:flex;margin-bottom: 16px;margin-top: 8px;box-sizing: border-box;}
+.play-model span{flex:1;height:30px;line-height:30px;text-align: center;margin:0 3px;font-size:20px;}
+.active{color:#f60;}
+
+footer{
+	width: 100%;
+	padding-bottom: 6px;
+}
+
+#list_H{max-height:300px;overflow-y:auto;border:1px solid #ddd;}
+#list_H li{border-bottom:1px dotted #ddd;line-height:2rem;color:#333;}
+#list_H li:hover{background-color: #efefef;}
+#list_H li:last-child{border:none;}
+#list_H li.active{color:#f60;}
+
+@keyframes rotatePic {
+	0%{transform:rotate(0deg);}
+	100%{transform:rotate(360deg);}
+}

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,inicial-scale=1"/>
+	<title>自定义音乐播放器</title>
+	<link rel="stylesheet" href="font/iconfont.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="font_sezhi/iconfont.css"/>
+	<link rel="stylesheet" type="text/css" href="dist/swiper/css/swiper.css"/>
+	<link rel="stylesheet" type="text/css" href="dist/bootstrap/css/bootstrap.css"/>
+	<script src="js/jquery-1.12.0.js"></script>
+	<script src="dist/zepto/zepto.js"></script>	
+	<script src="js/music.js"></script>
+	<!--<script src="js/musicXg.js"></script>-->
+	<script src="dist/swiper/js/swiper.js"></script>
+	<!--<script src="js/search.js"></script>-->
+	<!--<script src="js/songWord.js"></script>-->
+	<style>
+	*{
+		font-size: 62.5%;
+		  margin: 0 auto;
+	       	 padding: 0;
+			
+		 /*border: none;*/
+	}
+	       html{
+	       	 height: 100%;	       
+	       	 /*border: 1px solid green;*/	       	 	       	
+	       }
+	       body{
+	       	background-image: url(img/backpic1.jpg);
+	       	padding-left: 5px;
+	       	padding-right: 5px;
+	       }
+	     
+		   	.head{
+					width: 100%;
+					margin: 0 auto;
+					/*padding: 20px;*/
+					overflow: hidden;
+				}
+				.head_t{
+					  width: 100%;
+					  display: flex;
+					  height: 4rem;
+					  line-height: 4rem;
+				}
+				.head_t div:nth-child(1){
+					   width: 4rem;
+					   /*border: 1px solid red;*/
+					   font-size: 4rem;
+				}
+				.head_t div:nth-child(1) img{
+					  width: 100%;
+					  height: 100%;
+				}
+				.head_t div:nth-child(2){
+					   flex: 2;
+					   /*border: 1px solid red;*/
+					   text-align: center;
+					    font-size:14px;
+					    color: red;
+				}
+				.head_t div:nth-child(3){
+					   flex: 2;
+					   /*border*/: 1px solid red;
+					   text-align: center;
+					    font-size: 14px;
+				}
+				.head_t div:nth-child(4){
+					   flex: 2;
+					   /*border: 1px solid red;*/
+					   text-align: center;
+					    font-size: 14px;
+				}
+				.head_t div:nth-child(5){
+					   width: 3rem;
+					   /*border: 1px solid red;*/
+					    font-size: 3rem;
+				}
+				.icon-xitongcaidan{
+					  font-size: 30px;
+					  color: #ccc;
+				}
+				.search{
+					/*border: 1px solid yellow;*/
+					width: 100%;
+					height: 24px;
+					text-align: center;
+					margin-top: 6px;
+				}
+				
+				.search .input-group{
+					margin-top: 6px;
+					  height: 30px;
+					  text-align: center;
+				}
+				 .search .input-group .form-control{
+				 	display:inline-block;
+				 	  width: 220px;
+				 	  margin-left: 50px;
+				 	  text-align: none;
+				 	  height: 30px;
+				 }
+			    .search .input-group span{
+			    	  display: inline-block;
+			    	  /*border: 1px solid #ddd;*/
+			    	  border-left: none;
+			    	  height: 24px;
+			    	  width: 22px;
+			    	  background: white;
+			    	  border-top-right-radius: 14%;
+			    	  border-bottom-right-radius: 20%;
+			    }
+			   .search .glyphicon-search{
+			    	   font-size: 18px;
+			    	   
+			    } 
+			    #btn_gc{
+			    	 background: #6592c7;
+			    }
+			  .swiper-container {
+				  	position: absolute;
+				  	top: 8.5rem;
+				  	bottom: 21.5rem;
+				  	left: 3px;
+				  	right: 3px;
+				    width: 100%;
+				    /*height: 100%;*/
+				   background: white;
+				    box-sizing: border-box;
+				    /*border: 1px solid red;*/
+				}  
+			 .swiper-container .swiper-slide{
+			 	   width: 100%;
+			 }
+		      #swiper-container2{
+		      	 box-sizing: border-box;
+		      	  /*border: 1px solid green;*/
+		      }	
+		      
+		       #content_gc ul{	      	
+		      	 overflow-y:auto;
+		      	 max-height:300px;
+		      	  width: 100%;
+		      }
+		      #content_gc ul li {
+			    display: block;
+			    width: 100%;
+			    padding-left: 20px;
+			    padding-right: 40px;
+			    line-height: 28px;
+			    height: 28px;
+			    font-size: 14px;
+			    border-bottom: 1px dotted #ddd;
+			    /* width: 330px; */
+			    white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+		     } 
+		     #special_H{
+		     	background: url();
+		     	 background-size:100% 100%;
+		     	 width: 100%;
+		     	 height: 100%;
+		     	 /*margin-left:20px ;
+		     	 margin-right: 20px;*/
+		     	 
+		     }
+		     /*#special_H h3{
+		     	 text-align: center;
+		     	 font-size:2rem ;
+		     	 margin: 0;
+		     	 padding: 0;
+		     }
+		       #special_H p{
+		       	  text-align: center;
+		       	  font-size: 1.4rem;
+		       	  margin: 0;
+		       	  padding: 0;
+		       }
+		       #special_H div{
+		       	  width: 100%;
+		       	  height: 100%;
+		       	  border: 1px solid red;
+		       }
+		       #special_H img{
+		       	display: inline-block;
+		       	  width: 100%;
+		       	  height: 100%;
+		       }*/
+		     .songword{
+		     	  width: 100%;
+		     	  height: 100%;
+		     }
+		      #list_H ul{		      	
+		      	 overflow-y:auto;
+		      	 max-height:300px;
+		      	 width: 100%;
+		      	 border-top-left-radius: 4%;
+		      	 border-bottom-left-radius: 3%;
+		      
+		      }
+		      #list_H ul li{
+		      	  display: block;
+		      	  width: 100%;
+		      	  background: white;	      	 
+		      	  line-height: 28px;
+		      	  height: 28px;
+		      	  font-size: 14px;
+		      	  padding-left: 12px;
+		      	  border-bottom: 1px dotted #ddd;
+		      	  /*width: 330px;*/
+		      	  white-space: nowrap; /*强制不换行*/
+		      	  overflow: hidden;   /*溢出自动隐藏文字*/
+		      	  text-overflow: ellipsis; /*文字隐藏后添加省略号*/
+		      }	
+		         #list_H ul li a{
+		         	 display: none;
+		         }
+		         #pagination_H{
+		             z-index: 1000;
+		         	 position: absolute;
+		         	 bottom: 5px;
+		         }
+		        .contentGc{
+			 	      /*border: 1px solid;*/
+			 }
+			    .songword{
+			 	      /*border: 1px solid;*/
+			 }
+	</style>
+	<!-- 
+		html5播放器
+		1）ajax加载数据
+		2）暂停/播放
+		3）上一曲/下一曲
+		4）点击歌曲列表播放
+		5）静音
+		6）点击改变播放进度
+		7）实时显现播放进度（时间显示）
+		8）支持播放模式：
+			0:单曲播放,1:单曲循环,2:列表播放,3:列表循环,4:随机播放
+	 -->
+</head>
+<body>
+<!--<div class="btn_t">经典歌曲</div>
+	<div class="btn_t">美妙歌词</div>
+	<div class="btn_t">歌手写真</div>-->
+	
+	   <section class="head">			
+			<div class="head_t">
+				<div><img src="img/icon_T.jpg"/></div>
+				<div class="btn_t">歌曲搜索</div>
+				<div class="btn_t">经典歌词</div>
+				<div class="btn_t">美妙歌词</div>
+				<div><span class="iconfont icon-xitongcaidan"></span></div>
+			</div>	
+			<div class="search">
+			        <div class="input-group">
+			        	  <input type="text" class="form-control" id="input_gc"/>
+			        	  <span class="glyphicon glyphicon-search" id="btn_gc"></span>
+			        </div>			      
+			</div>
+			 <div class="swiper-container">
+				    <div class="swiper-wrapper">
+				    	<div class="swiper-slide contentGc" id="content_gc">
+				    		  
+				    	</div>
+				        <div class="swiper-slide">
+				            <div id="list_H"></div>
+				        </div>
+				        <div class="swiper-slide songword" id="special_H">
+				        	
+				        	<!--<div >
+				        		
+				        		   你好
+				        		   <!--<h3>十年</h3>
+				        		   <p>张学友</p>
+				        		   <div>
+				        		      <img src="img/g010.jpg" />
+				        		   </div>-->
+				        		   
+				       
+				        </div>
+				     
+				    </div>
+				     <!--如果需要分页器--> 
+				     <div class="swiper-pagination" id="pagination_H"></div>
+			</div>
+				   <script>
+				    
+					   var mySwiper = new Swiper('.swiper-container',{
+						    direction: 'horizontal', 
+						    
+						    // 如果需要分页器
+						    pagination: '.swiper-pagination',				    
+		//					 watchSlidesProgress : true,
+		//	                 watchSlidesVisibility : true,
+						  })   					  
+					      $('.btn_t').click(function(){
+					      	/*index同辈元素的索引值*/
+					      	var index= $(this).index();
+					      	console.log(index);
+								mySwiper.slideTo(index-1, 1000, false);//切换到第一个slide，速度为1秒
+							})
+						     
+				</script>
+	   </section>	
+	<div class="player">
+		<!--<section id="list_H">
+		</section>-->
+		<footer>
+			<!--标题-->
+			<section class="controls">
+				<h1 class="title">陈奕迅-十年</h1>							
+			</section>
+			<!--进度条-->
+			<div class="play-status">
+					<progress max="100" value="0"></progress>
+					<time class="left">-00:16</time>
+				</div>	
+			
+			<div class="play-main">
+				<span class="iconfont icon-previous" id="btnPrev"></span>
+				<span class="portrait">
+					 <img src="media/default.jpg">
+					<span class="iconfont icon-play" id="btnPlay"></span>
+				</span>
+				<span class="iconfont icon-next" id="btnNext"></span>
+				<span class="iconfont icon-audio" id="btnVolume"></span>
+			</div>
+			<div class="play-model">
+					<span class="iconfont icon-random" data-model="4" title="随机播放"></span>
+					<span class="iconfont icon-list" data-model="2" title="列表播放"></span>
+					<span class="iconfont icon-list-loop" data-model="3" title="列表循环"></span>
+					<span class="iconfont icon-loop" data-model="1" title="单曲循环"></span>
+				</div>
+		</footer>
+		
+	</div>
+</body>
+</html>
